@@ -1,0 +1,3 @@
+import App from "./App.mjs";
+// Il pourrait y avoir de la configuration ici...
+new App();

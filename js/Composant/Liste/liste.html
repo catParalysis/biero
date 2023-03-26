@@ -1,0 +1,34 @@
+<section id="liste">
+    <h1>La liste de nos bières</h1>
+    <aside><p>Trier par : </p>
+        <!-- Comment faire pour trier ?-->
+       
+
+    </aside>
+    
+
+    <section>
+        <table>
+            <tr>
+                <th>
+                    <span class="material-icons btnTri btnNomASC" data-tri="nom" data-ordre="ASC">arrow_downward</span> Nom 
+                    <span class="material-icons btnTri btnNomDESC" data-tri="nom" data-ordre="DESC">arrow_upward</span>
+                </th>
+                <th><span class="material-icons btnTri btnNomASC" data-tri="brasserie" data-ordre="ASC">arrow_downward</span>Brasserie</th>
+                <th>Note</th>
+                <th>Nombre</th>
+            </tr>
+            {{#data}}
+            <tr>
+                <td><a href="/produit/{{id_biere}}"> {{nom}}</a></td>
+                <td>{{brasserie}}</td>
+                <td>{{note}}</td>
+                <td>Nombre</td>
+            </tr>
+            {{/data}}
+       
+        </table>
+
+ 
+    </section>
+ </section>
