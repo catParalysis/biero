@@ -24,7 +24,6 @@ export default class Affichage {
                 .then(gabarit=>gabarit.text())
                 .then(gabarit=>{
                     this.oGabarit[nom] = {gabarit : gabarit};
-                    console.log(this.oGabarit);
                     if(fctRappel){
                         fctRappel();
                     }

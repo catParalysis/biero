@@ -37,7 +37,6 @@ export default class Composant {
         if(this.gabaritPret){
             console.log("rendu");
             chaineHTML = Affichage.genererHTML(this.nomGabarit, this.data);
-            //console.log(chaineHTML);
             this.domParent.innerHTML = chaineHTML;
             if(chaineHTML){
                 this.ajouterListener();
