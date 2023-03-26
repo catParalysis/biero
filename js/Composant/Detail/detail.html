@@ -1,0 +1,25 @@
+<section id="detail">
+    <h1>Bienvenue sur Biero client - Prototype</h1>
+    <h2>Nos 5 meilleures bières</h2>
+    <section>
+             <table class="tableau">
+                  <tr>
+                      <th>Nom</th>
+                      <th>Brasserie</th>
+                      <th>Note</th>
+                      <th>Nombre de notes</th>
+                      <th>Description</th>
+                  </tr>
+                  {{#data}}
+                  <tr>
+                      <td><a href="/produit/{{id_biere}}"> {{nom}}</a></td>
+                      <td>{{brasserie}}</td>
+                      <td>{{note_moyenne}}</td>
+                      <td>{{note_nombre}}</td>
+                      <td>{{description}}</td>
+                  </tr>
+                  {{/data}}
+             
+              </table>
+    </section>
+ </section>

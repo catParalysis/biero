@@ -2,8 +2,29 @@
    <h1>Bienvenue sur Biero client - Prototype</h1>
    <h2>Nos 5 meilleures bières</h2>
    <section>
-        <!-- Afficher les 5 meilleures bières, selon les notes moyennes-->
-        <!-- Vous devez générer la vue requise à partir des informations retourner par le Webservice biero -->
-
+            <table class="tableau">
+                 <tr>
+                     <th>
+                         <span class="material-icons btnTri btnNomASC" data-tri="nom" data-ordre="ASC">arrow_downward</span> Nom 
+                         <span class="material-icons btnTri btnNomDESC" data-tri="nom" data-ordre="DESC">arrow_upward</span>
+                     </th>
+                     <th><span class="material-icons btnTri btnNomASC" data-tri="brasserie" data-ordre="ASC">arrow_downward</span>Brasserie
+                        <span class="material-icons btnTri btnNomDESC" data-tri="brasserie" data-ordre="DESC">arrow_upward</span>
+                     </th>
+                     <th><span class="material-icons btnTri btnNomASC" data-tri="note_moyenne" data-ordre="ASC">arrow_downward</span> Note 
+                        <span class="material-icons btnTri btnNomDESC" data-tri="note_moyenne" data-ordre="DESC">arrow_upward</span></th>
+                     <th><span class="material-icons btnTri btnNomASC" data-tri="note_nombre" data-ordre="ASC">arrow_downward</span> Nombre de notes 
+                        <span class="material-icons btnTri btnNomDESC" data-tri="note_nombre" data-ordre="DESC">arrow_upward</span></th>
+                 </tr>
+                 {{#data}}
+                 <tr>
+                     <td><a href="/produit/{{id_biere}}"> {{nom}}</a></td>
+                     <td>{{brasserie}}</td>
+                     <td>{{note_moyenne}}</td>
+                     <td>{{note_nombre}}</td>
+                 </tr>
+                 {{/data}}
+            
+             </table>
    </section>
 </section>

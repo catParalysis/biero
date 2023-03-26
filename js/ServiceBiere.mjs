@@ -30,17 +30,24 @@ export default class ServiceBiere {
         fetch(this.api_url + "biere")
         .then(data=>data.json())
         .then(data=>{
-            
             fctRappel(data);
         })
     }
 
     static getUneBiere(id, fctRappel){
-       
+        fetch(this.api_url + "biere/" + id)
+        .then(data=>data.json())
+        .then(data=>{
+            fctRappel(data);
+        })
     }
 
     static getCommentaires(id, fctRappel){
-       
+        fetch(this.api_url + "biere/" + id + "/commentaire")
+        .then(data=>data.json())
+        .then(data=>{
+            fctRappel(data);
+        })
     }
 
     static ajouterCommentaires(id, commentaire, fctRappel){

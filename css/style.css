@@ -83,3 +83,11 @@ Utilitaire
 .filler {
     flex-grow: 1;
 }
+
+/************************
+Tableau
+************************/
+
+td{
+    text-align: center;
+}

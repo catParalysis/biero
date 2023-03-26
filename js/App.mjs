@@ -2,9 +2,10 @@
  * Fichier principal, il contient la logique de l'application. 
  * 
  * De manière générale, cette application permet d'afficher la liste des bières, le détail d'une bière et de laisser des commentaires
- * @todo Ajouter l'affichage de la page d'accueil (les 5 meilleures bières, avec les informations de base [nom, brasserie, moyenne, nombre de note])
- * @todo Compléter la page /produit. Faire fonctionner les tris (nom, brasserie et note [ASC et DESC])
- * @todo Ajouter une page Détail. Une route supplémentaire /produit/:id qui affiche les détails d'une bière ([nom, brasserie, moyenne, nombre de note, description]) ainsi que les commentaires reçus 
+ * @done Ajouter l'affichage de la page d'accueil (les 5 meilleures bières, avec les informations de base [nom, brasserie, moyenne, nombre de note])
+ * @done Compléter la page /produit. Faire fonctionner les tris (nom, brasserie et note [ASC et DESC])
+ * @todo Ajouter une page Détail. Une route supplémentaire /produit/:id qui affiche les détails d'une bière ([nom, brasserie, moyenne, nombre de note, description]) 
+ * ainsi que les commentaires reçus 
  * @todo Un utilisateur ayant un courriel valide (a@a)peut ajouter un commentaire sur une bière
  * @todo (Bonus mais juste pour des points virtuels) Utiliser les partials (mustache) pour gérer les affichages (accueil et liste)
  * @todo (Bonus mais juste pour des points virtuels) Remplacer mustache.js par handlebar.js
@@ -20,6 +21,7 @@ import ListeComposant from './Composant/Liste/ListeComposant.mjs';
 import AccueilComposant from './Composant/Accueil/AccueilComposant.mjs';
 import BiereComposant from './Composant/Biere/BiereComposant.mjs';
 import Composant from './Composant/Composant.mjs';
+import DetailComposant from './Composant/Detail/DetailComposant.mjs';
 
 
 export default class App {
@@ -35,7 +37,6 @@ export default class App {
     }
 
     accueil(){
-        console.log("accueil");
         this.domParent.innerHTML = "<h1>Accueil</h1>";
         if(!this.oTop5){
             this.oTop5 = new AccueilComposant(this.domParent);
@@ -54,7 +55,7 @@ export default class App {
         }
 
 
-        console.log("mes produits")
+
     }
     unProduit(ctx){
         console.log(ctx)
