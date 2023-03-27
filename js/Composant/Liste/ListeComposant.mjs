@@ -27,6 +27,7 @@ export default class ListeComposant extends Composant {
             this.setData(mesDonnees);  
             
         })     
+
     }
 
     ajouterListener(){

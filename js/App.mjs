@@ -58,9 +58,18 @@ export default class App {
 
     }
     unProduit(ctx){
+        if(!this.oBiere){
+            this.oBiere = new DetailComposant(this.domParent, ctx.params.id);
+        }
+        else{
+            this.oBiere.miseAJour(ctx.params.id);
+        }
+
+
         console.log(ctx)
         console.log(ctx.params.id)
         console.log("mes produits")
+        
         ServiceBiere.ajouterCommentaires();
     }
 }
