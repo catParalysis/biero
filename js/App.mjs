@@ -4,7 +4,7 @@
  * De manière générale, cette application permet d'afficher la liste des bières, le détail d'une bière et de laisser des commentaires
  * @done Ajouter l'affichage de la page d'accueil (les 5 meilleures bières, avec les informations de base [nom, brasserie, moyenne, nombre de note])
  * @done Compléter la page /produit. Faire fonctionner les tris (nom, brasserie et note [ASC et DESC])
- * @todo Ajouter une page Détail. Une route supplémentaire /produit/:id qui affiche les détails d'une bière ([nom, brasserie, moyenne, nombre de note, description]) 
+ * @done Ajouter une page Détail. Une route supplémentaire /produit/:id qui affiche les détails d'une bière ([nom, brasserie, moyenne, nombre de note, description]) 
  * ainsi que les commentaires reçus 
  * @todo Un utilisateur ayant un courriel valide (a@a)peut ajouter un commentaire sur une bière
  * @todo (Bonus mais juste pour des points virtuels) Utiliser les partials (mustache) pour gérer les affichages (accueil et liste)

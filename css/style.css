@@ -37,7 +37,6 @@ Top Nav
 * Main
 ****************************/
 main{
-    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
@@ -88,6 +87,117 @@ Utilitaire
 Tableau
 ************************/
 
-td{
+
+
+.tableau_accueil{
+    max-width: 100vw;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100vw;
+    margin: 0 auto;
+  }
+  
+  th,
+  td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ccc;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  th:nth-child(3),
+  th:nth-child(4) {
+    width: 250px;
+  }
+  
+  th:nth-child(5),
+  td:nth-child(5) {
+    width: 40%;
+  }
+  
+  td:nth-child(3),
+  td:nth-child(4) {
     text-align: center;
+  }
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  form {
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  textarea.form-control {
+    resize: none;
+  }
+  
+  button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0069d9;
+  }
+  
+  .comment-container {
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    margin-left: 10vw;
+  }
+  
+  .comment-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .comment-list {
+    list-style-type: none;
+    padding: 0
 }
