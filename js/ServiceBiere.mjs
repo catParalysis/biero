@@ -34,21 +34,24 @@ export default class ServiceBiere {
         })
     }
 
-    static getUneBiere(id, fctRappel){
-        fetch(this.api_url + "biere/" + id)
-        .then(data=>data.json())
-        .then(data=>{
-            fctRappel(data);
-        })
+    static async getUneBiere(id) {
+        const response = await fetch(this.api_url + "biere/" + id);
+        const data = await response.json();
+        return data;
     }
 
-    static getCommentaires(id, fctRappel){
-        fetch(this.api_url + "biere/" + id + "/commentaire")
-        .then(data=>data.json())
-        .then(data=>{
-            fctRappel(data);
-        })
+    static async getCommentaires(id) {
+        const response = await fetch(this.api_url + "biere/" + id + "/commentaire");
+        const data = await response.json();
+        return data;
     }
+
+    static async getNote(id) {
+        const response = await fetch(this.api_url + "biere/" + id + "/note");
+        const data = await response.json();
+        return data;
+    }
+
 
     static ajouterCommentaires(id, commentaire, fctRappel){
         const monCommentaire = {

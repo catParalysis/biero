@@ -5,12 +5,7 @@
  * @requires Mustache.js {https://unpkg.com/mustache@latest}
  */
 export default class Affichage {
-    /*oGabarits = {
-        cle : {
-            gabarit : "",
-            rendu : ""
-        }
-    }*/
+   
     
     static chargementGabarit(url_gabarit, nom, fctRappel){
         

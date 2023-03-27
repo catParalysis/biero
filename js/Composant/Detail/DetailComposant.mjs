@@ -2,51 +2,53 @@ import Affichage from "../../Affichage.mjs";
 import ServiceBiere from "../../ServiceBiere.mjs";
 import Composant from "../Composant.mjs";
 
-export default class ListeComposant extends Composant {
+export default class DetaiComposant extends Composant {
 
     /**
      * 
      * @param {HTMLElement} domParent Point d'insertion dans le DOM
      */
-    constructor(domParent) {
+    constructor(domParent, id) {
         super(domParent, [], true);
-        this.nomGabarit = "liste";
+        this.id = id
+        this.nomGabarit = "detail";
         
-        let data = { "data": [ { "id_biere": "6", "description": "string", "nom": "string", "brasserie": "string", "image": "string", "date_ajout": "2017-03-15 09:02:16", "date_modif": "2023-03-10", "note_moyenne": "5.0000", "note_nombre": "2" }]};
+        let data = { "data": [ { "id_biere": "6", "description": "string", "nom": "ca", "brasserie": "marche pas", "image": "string", "date_ajout": "2017-03-15 09:02:16", "date_modif": "2023-03-10", "note_moyenne": "5.0000", "note_nombre": "2" }]};
         this.setData(data);
-        Affichage.chargementGabarit("./js/Composant/Liste/liste.html", this.nomGabarit, () => {
+        Affichage.chargementGabarit("./js/Composant/Detail/detail.html", this.nomGabarit, () => {
             console.log("prêt à afficher")
             this.gabaritPret = true;
             this.afficher();
         });
-        this.miseAJour();
+        this.miseAJour(this.id);
         }
-    miseAJour() {
-        ServiceBiere.getListeBieres((mesDonnees) => {
-            //console.log(mesDonnees);
-            this.setData(mesDonnees);  
-            
-        })     
-    }
+    miseAJour(id) {
 
-    ajouterListener(){
+        Promise.all([
+            ServiceBiere.getUneBiere(id),
+            ServiceBiere.getCommentaires(id),
+            ServiceBiere.getNote(id)
+          ])
+          .then(([biere, commentaires, note]) => {
+            let mesDonnees = biere;
+                mesDonnees.data.commentaire = commentaires.data;
+                mesDonnees.data.note_moyenne = note.data.note;
+                mesDonnees.data.note_nombre = note.data.nombre;
+                console.log(mesDonnees);
+                this.setData(mesDonnees);
+                this.ajouterListenerBtn()
+            });
+          }
+
+    
+
+
+         ajouterListenerBtn(){
         console.log("ajouterListener");
-        console.log(this);
-        this.domParent.querySelectorAll(".btnTri").forEach((btnTri)=>{
-            btnTri.addEventListener('click', (evt)=>{
-                let btn = evt.target;
-                let tri = btn.dataset.tri;
-                let ordre = btn.dataset.ordre;
-                this.data.data.sort((a,b)=>{
-                    return a[tri].localeCompare(b[tri]);
-                })
-                if(ordre == 'DESC') {
-                    this.data.data.reverse();
-                }
+        const btn = this.domParent.querySelector("[data-js-btn]")
+            console.log(btn);
                 this.setData(this.data);
-            })
-        })
-    }
+        } 
     
    
 }
