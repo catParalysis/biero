@@ -36,18 +36,32 @@ export default class DetaiComposant extends Composant {
                 mesDonnees.data.note_nombre = note.data.nombre;
                 console.log(mesDonnees);
                 this.setData(mesDonnees);
-                this.ajouterListenerBtn()
+                this.ajouterListenerEnvoyer()
             });
           }
 
     
 
 
-         ajouterListenerBtn(){
+         ajouterListenerEnvoyer(){
         console.log("ajouterListener");
         const btn = this.domParent.querySelector("[data-js-btn]")
-            console.log(btn);
-                this.setData(this.data);
+            btn.addEventListener('click', (e)=>{
+                e.preventDefault();
+                let commentaire = document.querySelector('[data-js-commentaire]').value;
+                if (/^[a-zA-Z0-9._%+-]{1,}@([a-zA-Z0-9.-]{1,}){1,}$/.test(document.querySelector('[data-js-email]').value)) {
+                    let courriel = document.querySelector('[data-js-email]').value, 
+                    monCommentaire = {
+                    courriel : courriel,
+                    commentaire : commentaire
+                };
+                ServiceBiere.ajouterCommentaires(this.id, monCommentaire,()=>{
+                    
+                })
+                }  
+                location.reload();
+
+            })
         } 
     
    
